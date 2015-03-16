@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--[if IE 8]><html id="ie8" lang="zh-cmn-Hans" ><![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="zh-cmn-Hans">
+<!--<![endif]-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta name="renderer" content="webkit" />
+  <title>通用Portal 前端框架 beta</title>
+  <link rel="stylesheet" href="css/fx.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" >
+  <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/FX.Contextmenu.js"></script>
+  <script src="js/FX.NavTab.js"></script>
+  <script src="js/FX.Base.js"></script>
+  <script src="js/FX.Core.js"></script>
+ 
+</head>
+<body>
+  
+<!-- 内容最外层的div 不可去掉 -->
+<div class="fx_page"></div>
+
+
+
+<script>
+var config  = 
+    { 
+       "logo" : { "url" :  "images/logo.png","link" : "www.baidu.com" },
+       
+       "topbar" : 
+       [
+        { "title" : "FX（系统管理员）" },
+
+/*        {
+            "title" : "选择角色", 
+            "link" : "xxx.com", 
+            "icon" : "iclss",
+            "menu" : []
+            [
+                { "title" : "角色A", "link" : "xxx.com", "icon" : "iclss" },
+                { "title" : "角色B", "link" : "xxx.com", "icon" : "iclss" }
+            ]
+        },*/
+
+        {"title" : "退出", "link" : "xxx.com", "icon" : "fa fa-power-off"}
+
+       ],
+
+        "nav" : 
+        [
+          {
+            "id" : "menu",
+            "text" : "系统介绍",
+            "closeable" : true,
+            "home_page" : "menu",
+            "icon" : "fa fa-cog",
+            "href" : "html/iframe2.html",
+            "menu" : []
+          },
+
+          {
+            "id" : "former",
+            "text" : "日志管理",
+             "icon" : "fa fa-calendar",
+            "href" : "http://fain.me/",
+            "menu" : 
+            [
+              { "id" : "nick-menu011", "text" : "登录日志", "icon" : "fa fa-flag-checkered", "href" : "html/iframe.html" },
+              { "id" : "nick-menu012", "text" : "后台日志", "icon" : "fa fa-file-text-o", "href" : "html/iframe.html" },
+              { "id" : "nick-menu013", "text" : "外部服务接口日志外部服务接口日志", "icon" : "fa fa-fax", "href" : "html/iframe.html" }
+            ]
+          },
+          
+          {
+            "id" : "form",
+            "text" : "统一用户管理统一用户管理",
+            // "home_page" : "form",
+             "icon" : "fa fa-credit-card",
+            "href" : "http://fain.me/",
+            "menu" : 
+            [
+              {
+                "id" : "form-menu01",
+                "text" : "表单分组",
+                 "icon" : "fa fa-angle-down",
+                "href" : "html/iframe.html",
+                "menu" : 
+                [
+                  { "id" : "form-childmenu01", "text" : "表单联动","icon" : "fa fa-angle-right",  "href" : "html/iframe.html" },
+                  { "id" : "form-childmenu04", "text" : "表单示例", "icon" : "fa fa-angle-right",  "href" : "html/iframe4.html" },
+                  { "id" : "form-childmenu05", "text" : "表单简介" ,"icon" : "fa fa-angle-right"}
+                ]
+              },
+
+              {
+                "id" : "form-menu02",
+                "text" : "更多示例",
+                "menu" :
+                [
+                  { "id" : "form-childmenu06", "text" : "表单过滤", "href" : "html/iframe.html" }
+                ]
+              },
+
+              {
+                "id" : "form-menu05",
+                "text" : "更多示例4",
+                "menu" : 
+                [
+                  { "id" : "form-childmenu07", "text" : "表单过滤2", "href" : "html/iframe.html" }
+                ]
+              }
+            ]
+          },
+
+          {
+            "id" : "search",
+            "text" : "互动平台管理",
+             "icon" : "fa fa-envelope-o",
+            "href" : "html/iframe.html",
+            "menu" : 
+            [
+              { "id" : "nick-menu1", "text" : "待办信件", "icon" : "fa fa-envelope", "href" : "html/iframe.html" },
+              { "id" : "nick-menu2", "text" : "拟办信件", "icon" : "fa fa-envelope", "href" : "html/iframe.html" },
+              { "id" : "nick-menu5", "text" : "xx信件", "icon" : "fa fa-envelope", "href" : "html/iframe.html" },
+              { 
+                "id" : "nick-menu3www", "text" : "转办信件2", "icon" : "fa fa-envelope", "href" : "html/iframe.html" ,
+                "menu" : [{"id" : "nick-menu3fe", "text" : "转办信件3", "icon" : "fa fa-envelope", "href" : "html/iframe.html"}]
+              }
+            ]
+          }
+        ]
+  }
+
+/*
+* logo  字段说明
+* url ：logo图片地址或直接文字
+* link ：logo跳转链接
+*/
+
+/*
+* topbar  字段说明
+* title：标题名称
+* link ：标题链接地址
+* menu ：二级数组
+* icon：图标配置项；值为class
+*/
+
+/* 
+* nav 字段说明 
+* id ：菜单id，值唯一；
+* text：菜单标题名称；
+* icon ：菜单icon 的class值；
+* href：菜单链接地址；
+* menu：二级或三级菜单数组；
+* home_page：默认打开的页面，值为所选页面id；
+* closeable：false |· true（tab关闭按钮配置项；默认为false）
+*/
+
+/**
+ * 调用方法FxTab 
+ * 目前该系统只支持到3级目录
+ * 接收参数FxTab(config,style,isTab);
+ * config为后台返回的json的数据，格式字段参照以上所列
+ * style为界面风格,目前可选值为 ：A-0 || A-1 || B-0 || B-1  （A，B区别是html结构）;
+ * isTab 为布尔值, 默认false', 用来配置是否需要tab标签页;
+ **/
+new FxTab(config,"A-0",false).initDom();
+</script>
+</body>
+</html>
